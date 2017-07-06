@@ -31,6 +31,7 @@ And play...
  - `/start`: It prints a greeting message
  - `/greet`: Does the same as `/start`
  - `/echo`: Returns the given parameters
+ - `/9gag`: Print a random post from 9gag homepage
 
 As you may see, there's a lot of work to be done.
 
@@ -41,4 +42,4 @@ As you may see, there's a lot of work to be done.
  - [ ] Functional tests.
  - [ ] Tests coverage, maybe?
  - [ ] Dockerize: Because we don't like to deal with Ruby dependencies.
- - [ ] ...and more inportant: a counter of dead animals, killed by the Chepica's Terror.
+ - [ ] ...and more important: a counter of dead animals, killed by the Chepica's Terror.
