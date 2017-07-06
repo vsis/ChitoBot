@@ -32,6 +32,7 @@ And play...
  - `/greet`: Does the same as `/start`
  - `/echo`: Returns the given parameters
  - `/9gag`: Print a random post from 9gag homepage
+ - `/roll`: Roll a dice
 
 As you may see, there's a lot of work to be done.
 
