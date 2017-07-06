@@ -33,4 +33,20 @@ class TestChitoCmd < Test::Unit::TestCase
     def test_nine_gag
         assert_match(/^https:\/\/9gag.com\/gag\/[:alnum:]/, ChitoCmd.nine_gag())
     end
+
+    # Test a normal use of /roll
+    def test_roll_dice
+        message="/roll 3 6"
+        response = ChitoCmd.roll(message)
+        assert_match("3d6 + 0:", response)
+        message="/roll"
+        response = ChitoCmd.roll(message)
+        assert_match("1d20 + 0:", response)
+    end
+
+    # Test a wrong use of /roll
+    def test_wrong_roll_dice
+        message="/roll walala"
+        assert_equal("No entiendo la tirada\nUsa numeros, por ejemplo: '/roll 1 20 5' para 1d20 + 5", ChitoCmd.roll(message))
+    end
 end

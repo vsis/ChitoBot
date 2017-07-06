@@ -1,4 +1,4 @@
-
+require_relative "chito_utils"
 class ChitoCmd
     # Given a command, it returns the first word
     # If input is not a string, it returns its input
@@ -43,5 +43,24 @@ class ChitoCmd
     def self.help
         help = %x("cat" "lista")
         return help
+    end
+
+    # Roll a random dice
+    def self.roll(message)
+        words = message.split(' ')
+        inputs = words.length
+        dice_faces = 20 # default dice: 1d20
+        dices_number = 1 # one dice
+        dice_offset = 0 # no offset
+        error_message = "No entiendo la tirada\nUsa numeros, por ejemplo: '/roll 1 20 5' para 1d20 + 5"
+        dices_number = words[1].to_i unless inputs < 2
+        dice_faces = words[2].to_i unless inputs < 3
+        dice_offset = words[3].to_i unless inputs < 4
+        if (dices_number <= 0) or (dice_faces <= 0)
+            return error_message
+        else
+            result = ChitoUtils.roll_dice(dices_number, dice_faces, dice_offset)
+            return "#{dices_number}d#{dice_faces} + #{dice_offset}: #{result}"
+        end
     end
 end
