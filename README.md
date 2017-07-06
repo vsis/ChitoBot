@@ -1,6 +1,6 @@
 # ChitoBot
-
-The protector of Chepica, the killer of rabbits, the exterminator of mice and the lord of Meneses Rinconada
+![chito profile pic](./profile_pic.png)
+The protector of Chepica, the killer of rabbits, the exterminator of mice and the lord of Meneses Rinconada.
 Yes, this is my family cat talking through Telegram.
 
 ## How to execute
