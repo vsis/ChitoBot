@@ -10,20 +10,24 @@ def main(telegram_token)
 end
 
 def call_cmd(command, message, bot)
-    puts "in: #{message.from.first_name}: #{message.text}"
+    cmd = ChitoCmd.get_first_word(command)
+    puts "in<#{message.from.first_name}>: #{message.text}"
+    puts "cmd: #{cmd}"
     message.reply do |reply|
         must_reply = true
-        case command
-        when /echo/i
+        case cmd
+        when "echo"
             reply.text = ChitoCmd.echo(message.text)
-        when /greet/i, /start/i
+        when "greet", "start"
             reply.text = ChitoCmd.greet(message.from.first_name)
+        when "9gag"
+            reply.text = ChitoCmd.nine_gag()
         else
             must_reply = false
         end
         if must_reply
             reply.send_with(bot)
-            puts "out: #{reply.text.inspect} to #{message.from.first_name}"
+            puts "out<#{message.chat.id}>: #{reply.text.inspect}"
         end
     end
 end

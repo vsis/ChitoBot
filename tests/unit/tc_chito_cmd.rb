@@ -26,4 +26,11 @@ class TestChitoCmd < Test::Unit::TestCase
         random_cmd = get_random_string()
         assert_equal("Lo siento, no entiendo el comando: #{random_cmd}.\nPodrías implementarlo ;)", ChitoCmd.unknown_cmd(random_cmd))
     end
+
+    # Test if we get a good 9gag url
+    # IMPORTANT: this will fail without access to 9gag website.
+    # If you don't have internet, you must use a dummy page whit its name, or something.
+    def test_nine_gag
+        assert_match(/^https:\/\/9gag.com\/gag\/[:alnum:]/, ChitoCmd.nine_gag())
+    end
 end
