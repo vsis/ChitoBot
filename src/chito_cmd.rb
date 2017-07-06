@@ -39,4 +39,9 @@ class ChitoCmd
         return "Lo siento, no entiendo el comando: #{cmd}.\nPodrías implementarlo ;)"
     end
 
+    # A message to print, when people need /help
+    def self.help
+        help = %x("cat" "lista")
+        return help
+    end
 end

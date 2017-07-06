@@ -22,6 +22,8 @@ def call_cmd(command, message, bot)
             reply.text = ChitoCmd.greet(message.from.first_name)
         when "9gag"
             reply.text = ChitoCmd.nine_gag()
+        when "help"
+            reply.text = ChitoCmd.help()
         else
             must_reply = false
         end
