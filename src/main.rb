@@ -24,6 +24,8 @@ def call_cmd(command, message, bot)
             reply.text = ChitoCmd.nine_gag()
         when "roll"
             reply.text = ChitoCmd.roll(message.text)
+        when "viernes"
+            reply.text = ChitoCmd.viernes()
         when "help"
             reply.text = ChitoCmd.help()
         else

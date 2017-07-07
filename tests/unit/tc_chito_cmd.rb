@@ -49,4 +49,9 @@ class TestChitoCmd < Test::Unit::TestCase
         message="/roll walala"
         assert_equal("No entiendo la tirada\nUsa numeros, por ejemplo: '/roll 1 20 5' para 1d20 + 5", ChitoCmd.roll(message))
     end
+
+    # Test viernes feature
+    def test_viernes
+        assert_equal("Siempre es viernes en mi corazón 🎼 ", ChitoCmd.viernes())
+    end
 end

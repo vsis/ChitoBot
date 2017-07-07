@@ -45,6 +45,11 @@ class ChitoCmd
         return help
     end
 
+    # This returns viernes' song
+    def self.viernes
+        return "Siempre es viernes en mi corazón 🎼 "
+    end
+
     # Roll a random dice
     def self.roll(message)
         words = message.split(' ')
