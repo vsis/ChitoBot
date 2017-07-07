@@ -63,5 +63,5 @@ As you may see, there's a lot of work to be done.
  - [ ] Moar commands: memes, jokes, etc. You know: useful things.
  - [ ] Functional tests.
  - [ ] Tests coverage, maybe?
- - [*] Dockerize: Because we don't like to deal with Ruby dependencies.
+ - [x] Dockerize: Because we don't like to deal with Ruby dependencies.
  - [ ] ...and more important: a counter of dead animals, killed by the Chepica's Terror.
