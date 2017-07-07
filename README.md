@@ -34,7 +34,7 @@ echo "token given by telegram" > telegram_token
 ./docker-build.sh
 ```
 
-Then, you'll see an image called `chitobot`, with a tab based on version and build timestamp.
+Then, you'll see an image called `chitobot`, with a tag based on version and build timestamp.
 
 ```
 $ docker images
