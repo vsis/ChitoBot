@@ -3,9 +3,19 @@ require_relative 'chito_cmd'
 
 def main(telegram_token)
     bot = TelegramBot.new(token: telegram_token)
-    bot.get_updates(fail_silently: true) do |message|
-        command = message.get_command_for(bot)
-        call_cmd(command, message, bot)
+    get_updates(bot)
+end
+
+def get_updates(bot)
+    begin
+        bot.get_updates(fail_silently: true) do |message|
+            command = message.get_command_for(bot)
+            call_cmd(command, message, bot)
+        end
+    rescue Excon::Error::Timeout
+        puts "get_updates: Time out!"
+        sleep 1
+        get_updates(bot)
     end
 end
 
