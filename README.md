@@ -27,6 +27,12 @@ And play...
 ./start.sh
 ```
 
+You may read logfile with:
+```
+tail -f ChitoBot.log
+```
+
+
 ### With Docker
 First, you need to build the image:
 ```
@@ -46,6 +52,13 @@ Run that image, and you're done.
 ```
 docker run -d --rm chitobot:0.1-20170707095448
 ```
+
+
+Then, you may read logfile with:
+```
+docker exec -ti ChitoBot tail -f ChitoBot.log
+```
+
 
 ## List of implemented comands
  - `/start`: It prints a greeting message

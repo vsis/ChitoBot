@@ -24,7 +24,7 @@ end
 
 def call_cmd(command, message, bot)
     cmd = ChitoCmd.get_first_word(command)
-    $LOG.info("IN - channel:#{message.chat.id} text:\"#{message.text}\"")
+    $LOG.info("IN  - channel:#{message.chat.id} text:\"#{message.text}\"")
     message.reply do |reply|
         must_reply = true
         case cmd
