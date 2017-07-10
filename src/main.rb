@@ -1,7 +1,10 @@
 require 'telegram_bot'
+require 'logger'
 require_relative 'chito_cmd'
 
 def main(telegram_token)
+    $LOG = Logger.new("ChitoBot.log", "monthly")
+    $LOG.info("ChitoBot has been started")
     bot = TelegramBot.new(token: telegram_token)
     get_updates(bot)
 end
@@ -13,7 +16,7 @@ def get_updates(bot)
             call_cmd(command, message, bot)
         end
     rescue Excon::Error::Timeout
-        puts "get_updates: Time out!"
+        $LOG.warn("get_updates() - time out!")
         sleep 1
         get_updates(bot)
     end
@@ -21,8 +24,7 @@ end
 
 def call_cmd(command, message, bot)
     cmd = ChitoCmd.get_first_word(command)
-    puts "in<#{message.from.first_name}>: #{message.text}"
-    puts "cmd: #{cmd}"
+    $LOG.info("IN - channel:#{message.chat.id} text:\"#{message.text}\"")
     message.reply do |reply|
         must_reply = true
         case cmd
@@ -43,7 +45,7 @@ def call_cmd(command, message, bot)
         end
         if must_reply
             reply.send_with(bot)
-            puts "out<#{message.chat.id}>: #{reply.text.inspect}"
+            $LOG.info("OUT - channel:#{message.chat.id} text:\"#{reply.text.inspect}\"")
         end
     end
 end

@@ -1,5 +1,6 @@
 *.swp
 *.swo
+*.log
 .bundle
 src/gems/
 telegram_token

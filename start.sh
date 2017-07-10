@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo "Iniciando ChitoBot"
 if [ -f telegram_token ]
 then
     ruby src/main.rb $(cat telegram_token)
