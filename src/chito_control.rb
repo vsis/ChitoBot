@@ -39,9 +39,9 @@ class ChitoControl
                 Thread.new do
                     begin
                         message.reply do |reply|
-                        reply.text = send(method, message)
-                        reply.send_with(bot)
-                        log.info("OUT - channel:#{message.chat.id} text:\"#{reply.text}\"")
+                            reply.text = send(method, *[message, bot, log])
+                            reply.send_with(bot)
+                            log.info("OUT - channel:#{message.chat.id} text:\"#{reply.text}\"")
                         end
                     rescue Exception => e
                         log.warn("command:#{command} exception:#{e.message}")
@@ -63,32 +63,32 @@ class ChitoControl
     #######################################################################
     
     # Echo command. Return the given input
-    def self.echo(message)
+    def self.echo(message, bot, log)
         return ChitoCmd.echo(message.text)
     end
 
     # Greet command. Salute the user
-    def self.greet(message)
+    def self.greet(message, bot, log)
         return ChitoCmd.greet(message.user.first_name)
     end
 
     # 9gag command. Return a random 9gag post from its homepage
-    def self.nine_gag(message)
+    def self.nine_gag(message, bot, log)
         return ChitoCmd.nine_gag()
     end
 
     # Roll command. Roll a dice or a group of dices
-    def self.roll(message)
+    def self.roll(message, bot, log)
         return ChitoCmd.roll(message.text)
     end
 
     # Sing the Viernes song
-    def self.viernes(message)
+    def self.viernes(message, bot, log)
         return ChitoCmd.viernes()
     end
 
     # Print help text
-    def self.help(message)
+    def self.help(message, bot, log)
         return ChitoCmd.help()
     end
 end

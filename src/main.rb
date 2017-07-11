@@ -4,6 +4,7 @@ require_relative 'chito_control'
 
 def main(telegram_token)
     $LOG = Logger.new("ChitoBot.log", "monthly")
+    $LOG.level = Logger::INFO
     $LOG.info("ChitoBot has been started")
     bot = TelegramBot.new(token: telegram_token)
     get_updates(bot)
