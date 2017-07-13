@@ -50,7 +50,7 @@ chitobot               0.1-20170707095448   ded0dd0a83a5        7 minutes ago   
 
 Run that image, and you're done.
 ```
-docker run -d --rm chitobot:0.1-20170707095448
+./docker-run.sh
 ```
 
 

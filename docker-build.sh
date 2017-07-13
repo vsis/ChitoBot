@@ -1,7 +1,7 @@
 #!/bin/bash
 
 version=$(cat version)
-timestamp=$(date +%Y%m%d%H%M%S)
+timestamp=$(date +%Y.%m.%d.%H.%M.%S)
 tag=${version}-${timestamp}
 
 if [ -f telegram_token ]
