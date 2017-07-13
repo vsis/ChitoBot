@@ -20,7 +20,9 @@ class ChitoControl
     # Given a command, it returns the first word
     def self.get_command(text)
         if (text.is_a? String) and (text[0] == '/')
-            first_word = text.split(' ')[0]
+            # slipt(' ')[0] -> gets first word
+            # split('@')[0] -> get command if input is "command@bot_name"
+            first_word = text.split(' ')[0].split('@')[0]
             return first_word
         else
             return nil
