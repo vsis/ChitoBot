@@ -18,7 +18,6 @@ class ChitoControl
     }
 
     # Given a command, it returns the first word
-    # If input is not a string, it returns its input
     def self.get_command(text)
         if (text.is_a? String) and (text[0] == '/')
             first_word = text.split(' ')[0]
@@ -90,5 +89,11 @@ class ChitoControl
     # Print help text
     def self.help(message, bot, log)
         return ChitoCmd.help()
+    end
+
+    # Print this when an unknown command were recieved
+    def self.unknown(message, bot, log)
+        cmd = get_command(message)
+        return ChitoCmd.unknown_cmd(cmd)
     end
 end

@@ -15,7 +15,7 @@ def get_updates(bot)
         bot.get_updates(fail_silently: true) do |message|
             ChitoControl.exec_command(message, bot, $LOG)
         end
-    rescue Excon::Error::Timeout
+    rescue Excon::Error::Timeout, Excon::Error::Socket
         $LOG.warn("get_updates() - time out!")
         sleep 1
         get_updates(bot)
