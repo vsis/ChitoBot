@@ -19,6 +19,10 @@ def get_updates(bot)
         $LOG.warn("get_updates() - time out!")
         sleep 1
         get_updates(bot)
+    rescue JSON::ParserError
+        $LOG.warn("get_updates() - JSON parse error!")
+        sleep 1
+        get_updates(bot)
     end
 end
 
