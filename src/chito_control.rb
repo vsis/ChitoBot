@@ -14,6 +14,7 @@ class ChitoControl
         '/roll'=>    "roll",
         '/9gag'=>    "nine_gag",
         '/viernes'=> "viernes",
+        '/cart' =>   "cart",
         '/help'=>    "help"
     }
 
@@ -91,6 +92,11 @@ class ChitoControl
     # Print help text
     def self.help(message, bot, log)
         return ChitoCmd.help()
+    end
+
+    # Tools for supermarket cart
+    def self.cart(message, bot, log)
+        return ChitoCmd.cart(message.text, message.chat.id)
     end
 
     # Print this when an unknown command were recieved
