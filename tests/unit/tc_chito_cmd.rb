@@ -54,4 +54,11 @@ class TestChitoCmd < Test::Unit::TestCase
     def test_viernes
         assert_equal("Siempre es viernes en mi corazón 🎼 ", ChitoCmd.viernes())
     end
+
+    # Test cart
+    def test_cart
+        random_name = get_random_string()
+        assert_equal("\"#{random_name}\" añadido al carrito 🛒", ChitoCmd.cart("/cart push #{random_name}", 1))
+        assert_equal("Contenido del carrito:\n🛒    #{random_name}", ChitoCmd.cart("/cart pull", 1))
+    end
 end

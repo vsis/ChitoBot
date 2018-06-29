@@ -36,6 +36,25 @@ class ChitoCmd
         return "Siempre es viernes en mi corazón 🎼 "
     end
 
+    # Supermarket cart
+    def self.cart(message, chat_id)
+        words = message.split(' ')
+        if words.length > 1
+            subcommand = words[1]
+            if (subcommand == 'push') and (words.length > 2)
+                cart_element = words[2..-1].join(' ')
+                ChitoUtils.cart_push(cart_element, chat_id)
+                return "\"#{cart_element}\" añadido al carrito 🛒"
+            elsif (subcommand == 'pull') and (words.length == 2)
+                return ChitoUtils.cart_pull(chat_id)
+            else
+                return "Error de sintáxis.\nModo de uso: /cart (push <elemento>|pull)."
+            end
+        else
+            return "Error de sintáxis.\nModo de uso: /cart (push <elemento>|pull)."
+        end
+    end
+
     # Roll a random dice
     def self.roll(message)
         words = message.split(' ')
