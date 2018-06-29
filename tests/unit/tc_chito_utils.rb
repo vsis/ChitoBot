@@ -14,4 +14,22 @@ class TestChitoUtils < Test::Unit::TestCase
         assert(roll.is_a? Integer)
         assert((101..120).member?(roll))
     end
-end    
+
+    # test a use of cart pull and push
+    def test_cart
+        cart = ChitoUtils.cart_pull(1)
+        assert(cart == "El carro está vacío 🛒")
+        ChitoUtils.cart_push("hola mundo", 1)
+        cart = ChitoUtils.cart_pull(1)
+        assert(cart == "Contenido del carrito:\n🛒    hola mundo")
+    end
+
+    # test a use of cart from different channel
+    def test_cart_different_channel
+        ChitoUtils.cart_push("hola", 1)
+        cart = ChitoUtils.cart_pull(2)
+        assert(cart == "El carro está vacío 🛒", cart)
+        cart = ChitoUtils.cart_pull(1)
+        assert(cart == "Contenido del carrito:\n🛒    hola")
+    end
+end
