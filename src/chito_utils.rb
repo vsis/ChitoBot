@@ -15,7 +15,11 @@ class ChitoUtils
 
     # Push to cart list
     def self.cart_push(element, chat_id)
-        $cart_elements[chat_id] << element
+        if $cart_elements[chat_id] == []
+            $cart_elements[chat_id] = [element]
+        else
+            $cart_elements[chat_id] << element
+        end
     end
 
     # Pull elements from cart list
